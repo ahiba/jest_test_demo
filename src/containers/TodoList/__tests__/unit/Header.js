@@ -8,6 +8,13 @@ import expectExport from '_expect@24.9.0@expect';
 Enzyme.configure({ adapter: new Adapter() });
 // import ReactDOM from 'react-dom';
 
+it('header 渲染样式正常', () => {
+  const wrapper = shallow(<Header />)
+  expect(wrapper).toMatchSnapshot()
+  // const inputElem = wrapper.find("[data-test='input']")
+  // expect(inputElem.length).toBe(1)
+  
+});
 
 it('header 组件包含一个input 框', () => {
   const wrapper = shallow(<Header />)

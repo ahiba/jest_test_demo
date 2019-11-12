@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`header 渲染样式正常 1`] = `
+<div
+  className="header"
+>
+  <div
+    className="header_content"
+  >
+    TodoList
+    <input
+      className="header_input"
+      data-test="input"
+      onChange={[Function]}
+      onKeyUp={[Function]}
+      placeholder="todo"
+      value=""
+    />
+  </div>
+</div>
+`;
