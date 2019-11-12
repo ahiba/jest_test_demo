@@ -1,11 +1,12 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
+// import Adapter from 'enzyme-adapter-react-16';
 // import App from './App';
 import Header from '../../components/Header'
 import expectExport from '_expect@24.9.0@expect';
+import { findTestWrapper } from '../../../../utils/testUtils'
 
-Enzyme.configure({ adapter: new Adapter() });
+// Enzyme.configure({ adapter: new Adapter() });
 // import ReactDOM from 'react-dom';
 
 it('header 渲染样式正常', () => {
@@ -18,21 +19,24 @@ it('header 渲染样式正常', () => {
 
 it('header 组件包含一个input 框', () => {
   const wrapper = shallow(<Header />)
-  const inputElem = wrapper.find("[data-test='input']")
+  // const inputElem = wrapper.find("[data-test='input']")
+  const inputElem = findTestWrapper(wrapper, 'input')
   expect(inputElem.length).toBe(1)
   
 });
 
 it('header 组件 input框内容 初始化应该为空', () => {
   const wrapper = shallow(<Header />)
-  const inputElem = wrapper.find("[data-test='input']")
+  // const inputElem = wrapper.find("[data-test='input']")
+  const inputElem = findTestWrapper(wrapper, 'input')
   expect(inputElem.prop('value')).toEqual('')
   
 });
 
 it('header 组件 input框内容 当用户输入时跟随变化', () => {
   const wrapper = shallow(<Header />)
-  const inputElem = wrapper.find("[data-test='input']")
+  // const inputElem = wrapper.find("[data-test='input']")
+  const inputElem = findTestWrapper(wrapper, 'input')
   // expect(inputElem.prop('value')).toEqual('')
   const userInput = '今天要学习jest'
   inputElem.simulate('change', {
@@ -48,7 +52,8 @@ it('header 组件 input框内容 当用户输入时跟随变化', () => {
 it('header组件 input 框输入回车时,如果input 无内容， 无操作', () => {
   const fn = jest.fn()
   const wrapper = shallow(<Header addUndoItem={fn}/>)
-  const inputElem = wrapper.find("[data-test='input']")
+  // const inputElem = wrapper.find("[data-test='input']")
+  const inputElem = findTestWrapper(wrapper, 'input')
   // const value = ''
   wrapper.setState({
     value: ''
@@ -62,7 +67,8 @@ it('header组件 input 框输入回车时,如果input 无内容， 无操作', (
 it('header组件 input 框输入回车时,如果input 有内容， 有操作', () => {
   const fn = jest.fn()
   const wrapper = shallow(<Header addUndoItem={fn}/>)
-  const inputElem = wrapper.find("[data-test='input']")
+  // const inputElem = wrapper.find("[data-test='input']")
+  const inputElem = findTestWrapper(wrapper, 'input')
   // const value = ''
   wrapper.setState({
     value: '学习测试'
@@ -77,7 +83,8 @@ it('header组件 input 框输入回车时,如果input 有内容， 有操作', (
 it('header组件 input 框输入回车时,如果input 有内容， 最后应该清除掉', () => {
   const fn = jest.fn()
   const wrapper = shallow(<Header addUndoItem={fn}/>)
-  const inputElem = wrapper.find("[data-test='input']")
+  // const inputElem = wrapper.find("[data-test='input']")
+  const inputElem = findTestWrapper(wrapper, 'input')
   // const value = ''
   wrapper.setState({
     value: '学习测试'
