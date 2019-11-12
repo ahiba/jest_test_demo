@@ -8,7 +8,7 @@ import { findTestWrapper } from '../../../../utils/testUtils'
 
 // Enzyme.configure({ adapter: new Adapter() });
 // import ReactDOM from 'react-dom';
-descibe("Header 组件", () => {
+describe("Header 组件", () => {
   it('渲染样式正常', () => {
     const wrapper = shallow(<Header />)
     expect(wrapper).toMatchSnapshot()
