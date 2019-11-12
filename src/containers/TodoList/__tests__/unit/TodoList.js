@@ -29,7 +29,7 @@ it('当 header 回车时 undoList 应该新增内容', () => {
   addFunc('学习react')
 
   expect(wrapper.state('undoList').length).toBe(1)
-  expect(wrapper.state('undoList')[0]).toBe('学习react')
+  expect(wrapper.state('undoList')[0]).toBe('学习react ')
   // expect(Header.prop('addUndoItem')).toBe(wrapper.instance().addUndoItem)
   // expect(wrapper.state('undoList')).toBe(wrapper.instance().addUndoItem)
   
